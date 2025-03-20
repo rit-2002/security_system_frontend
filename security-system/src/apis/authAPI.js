@@ -7,7 +7,7 @@ export const login = async (username, password, captchaValue) => {
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);
- 
+    formData.append('g-recaptcha-response', captchaValue);
 
     const response = await axiosAPI.post(`${API_BASE_URL}/login/token`, formData, {
       headers: {
