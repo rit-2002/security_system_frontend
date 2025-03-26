@@ -41,3 +41,20 @@ export const validateToken = async () => {
     throw error;
   }
 };
+
+
+// password change not needed for now
+export const changePassword = async (oldPassword, newPassword) => {
+  try {
+    const data = {
+      old_password: oldPassword,
+      new_password: newPassword,
+    };
+
+    const response = await axiosAPI.post(`${API_BASE_URL}/pass/change-password`, data);
+    return response;
+  } catch (error) {
+    console.error('Error changing password:', error);
+    throw error;
+  }
+}
