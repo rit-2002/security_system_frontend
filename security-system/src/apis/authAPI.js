@@ -21,3 +21,23 @@ export const login = async (username, password, captchaValue) => {
     throw error;
   }
 };
+
+export const logout = async () => {
+  try {
+    const response = await axiosAPI.post(`${API_BASE_URL}/login/`);
+    return response;
+  } catch (error) {
+    console.error('Error logging out:', error);
+    throw error;
+  }
+};
+
+export const validateToken = async () => {
+  try {
+    const response = await axiosAPI.get(`${API_BASE_URL}/validate`);
+    return response;
+  } catch (error) {
+    console.error('Error validating token:', error.response.data.detail);
+    throw error;
+  }
+};
