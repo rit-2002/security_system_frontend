@@ -58,3 +58,16 @@ export const changePassword = async (oldPassword, newPassword) => {
     throw error;
   }
 }
+
+export const updatePassword = async (newPassword) => {
+  try {
+    const data = {
+      newPassword
+    }
+    const response = await axiosAPI.post(`${API_BASE_URL}/pass/update-password`, data);
+    return response;
+  } catch (error) {
+    console.error('Error changing password:', error);
+    throw error;
+  }
+}
